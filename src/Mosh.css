@@ -1,0 +1,31 @@
+.main {
+  text-align: center;
+  justify-content: center;
+  background-color: rgb(255, 246, 242);
+  display: flex;
+  gap: 5%;
+  flex-direction: row;
+  height: 100vh;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.button {
+  font-size: xx-large;
+  background-color: rgb(228, 255, 201);
+  border-radius: 8px;
+  text-shadow: 1px 1px 2px rgb(217, 215, 215);
+}
+
+.text {
+  font-size: xx-large;
+  color: rgb(255, 0, 0);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+select {
+  font-size: xx-large;
+  border-radius: 12px;
+  background-color: rgb(194, 245, 143);
+  width: 30%;
+}
