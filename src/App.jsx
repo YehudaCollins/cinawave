@@ -101,6 +101,7 @@ import "./top.css";
 import "./card.css";
 import "./insideCard.css";
 import "./MyList.css";
+import NotFoundPage from "./NotFound";
 
 function App() {
   const [originalMovies, setOriginalMovies] = useState([]);
@@ -157,7 +158,7 @@ function App() {
   return (
     <Router>
       <div className="Main">
-        <Top onSearch={handleSearch} />
+        <Top onSearch={handleSearch} /> 
         <Routes>
           <Route
             path="/"
@@ -179,6 +180,8 @@ function App() {
             element={<MyList filteredMovies={filteredMovies} />}
           />
           <Route path="/series" element={<Series />} />
+          <Route path="*" element={<NotFoundPage/>} />
+
         </Routes>
       </div>
     </Router>
