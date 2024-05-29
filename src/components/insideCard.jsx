@@ -1,12 +1,9 @@
 import React, { useState, useEffect, memo, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlay,
-  faPlus,
-  faCircle,
-  faCheck,
-} from "@fortawesome/free-solid-svg-icons";
+import {faPlay,faPlus,faCircle,faCheck,} from "@fortawesome/free-solid-svg-icons";
+import "../style/insideCard.css";
+
 const apiKey = "3d3bdf59fe98f22449ae9f0c6c3727f6";
 const baseUrl = "https://api.themoviedb.org/3/";
 

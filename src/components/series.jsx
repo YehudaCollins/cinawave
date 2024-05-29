@@ -1,7 +1,7 @@
 // Series.js
 import React, { useState, useEffect } from "react";
 import Card from "./card"; // Update the import to match your file name
-import { fetchTrendingSeries } from "./databaseSeries"; // Import the function to fetch series data
+import { fetchTrendingSeries } from "../data/databaseSeries"; // Import the function to fetch series data
 
 function Series() {
   const [trendingSeries, setTrendingSeries] = useState([]);

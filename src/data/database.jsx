@@ -143,8 +143,6 @@
 
 
 const apiKey = "3d3bdf59fe98f22449ae9f0c6c3727f6";
-// const apiKey = process.env.REACT_APP_API_KEY;
-
 const baseUrl = "https://api.themoviedb.org/3/";
 const logoBaseUrl = "https://image.tmdb.org/t/p/original";
 

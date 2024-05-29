@@ -1,13 +1,13 @@
-import Button from "./Button/Button";
+import Button from "../Button/Button";
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { faSearch, faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../style/top.css";
+
 
 function Titel({ searchQuery, setSearchQuery, handleKeyDown }) {
   const location = useLocation();
-  const navigation = useNavigate();
-
   return (
     <div className="titel">
       <img className="logo" src="/images/logo.png" alt="logo" />

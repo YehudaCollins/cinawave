@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Card from "./card";
 import { Link } from "react-router-dom";
+import "../style/MyList.css";
+
 
 function MyList({ filteredMovies }) {
   const [likedMovies, setLikedMovies] = useState([]);

@@ -91,17 +91,13 @@
 
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Card from "./card";
-import InsideCard from "./insideCard";
-import getAllTrendingMovies from "./database";
-import MyList from "./myList";
-import Top from "./top";
-import "./App.css";
-import "./top.css";
-import "./card.css";
-import "./insideCard.css";
-import "./MyList.css";
-import NotFoundPage from "./NotFound";
+import Card from "./components/card";
+import InsideCard from "./components/insideCard";
+import getAllTrendingMovies from "./data/database";
+import MyList from "./components/myList";
+import Top from "./components/top";
+import "./style/App.css";
+import NotFoundPage from "./components/NotFound";
 
 function App() {
   const [originalMovies, setOriginalMovies] = useState([]);
