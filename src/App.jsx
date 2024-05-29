@@ -96,7 +96,7 @@ import InsideCard from "./components/insideCard";
 import getAllTrendingMovies from "./data/database";
 import MyList from "./components/myList";
 import Top from "./components/top";
-import "./style/App.css";
+import "./style/app.css";
 import NotFoundPage from "./components/NotFound";
 
 function App() {
