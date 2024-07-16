@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 function Home({ filteredMovies, loadMoreMovies, isLoading }) {
     return (
       <div className="main-cards">
-        {filteredMovies.map((movie, index) => (
+        {filteredMovies.map((movie) => (
           <Link
-            key={index}
+            key={movie.id}
             to={`/card/${encodeURIComponent(movie.original_title)}`}
           >
             <Card movie={movie} />

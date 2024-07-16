@@ -92,20 +92,16 @@ const InsideCard = memo(
       right: 0,
       bottom: 0,
       zIndex: -1,
-      boxShadow: "inset 500px 0 400px -50px rgba(0, 0, 0, 1), inset 0 -300px 200px -50px rgba(0, 0, 0, 1)",
-    };
-    
-    // Add media query styles outside the object
-    const mediaQueryStyle = {
-      backgroundImageStyle: {
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "20vh",
-        position: "relative",
-        marginTop: "10px",
-      }
+      boxShadow:
+        "inset 500px 0 400px -50px rgba(0, 0, 0, 1), inset 0 -300px 200px -50px rgba(0, 0, 0, 1)",
+        '@media (max-width: 768px)': {
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      height: "20vh",
+      position: "relative",
+      marginTop: "10px",
     }
-    
+    };
 
     const movieLength = selectedMovie.runtime;
     const formattedLength = movieLength
