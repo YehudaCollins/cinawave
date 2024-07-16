@@ -76,3 +76,4 @@ function Home({ filteredMovies,  loadMoreMovies,  isLoading, noResults }) {
 }
 
 export default Home;
+
