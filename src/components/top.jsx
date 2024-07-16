@@ -1,8 +1,8 @@
 import Button from "../Button/Button";
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { faSearch, faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaSearch } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 import "../style/top.css";
 
 
@@ -12,7 +12,7 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown }) {
     <div className="titel">
       <img className="logo" src="/images/logo.png" alt="logo" />
       <div className="search-box">
-        <FontAwesomeIcon icon={faSearch} size="lg" id="search-icon" />
+        <FaSearch id="search-icon" />
         <input
           className="search-bar"
           type="text"
@@ -44,7 +44,12 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown }) {
         </Link>
       </div>
       <div className="burger-menu">
-        <FontAwesomeIcon icon={faBarsStaggered} size="lg" id="burger-menu" />
+      <Link
+          to="/profile"
+          className={location.pathname === "/profile" ? "active-link" : ""}
+        >
+          <CgProfile />
+        </Link>
       </div>
     </div>
   );

@@ -40,3 +40,10 @@ body {
 .btn-space {
   height: 100%;
 }
+
+.no-results {
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 50px;
+}
