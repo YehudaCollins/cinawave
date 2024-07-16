@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback  } from 'react';
 import getAllTrendingSeries from '../data/databaseSeries';
 import { Link } from 'react-router-dom';
 import SeriesCard from './SeriesCard';  
@@ -8,18 +8,32 @@ function Series() {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    fetchSeries();
-  }, []);
+  // useEffect(() => {
+  //   fetchSeries();
+  // }, []);
 
-  const fetchSeries = async () => {
+  // const fetchSeries = async () => {
+  //   setIsLoading(true);
+  //   const newSeries = await getAllTrendingSeries(page);
+  //   console.log('Fetched Series:', newSeries);
+  //   setSeries(prevSeries => [...prevSeries, ...newSeries]);
+  //   setPage(prevPage => prevPage + 1);
+  //   setIsLoading(false);
+  // };
+
+  const fetchSeries = useCallback(async () => {
     setIsLoading(true);
     const newSeries = await getAllTrendingSeries(page);
     console.log('Fetched Series:', newSeries);
     setSeries(prevSeries => [...prevSeries, ...newSeries]);
     setPage(prevPage => prevPage + 1);
     setIsLoading(false);
-  };
+  }, [page]);
+
+  useEffect(() => {
+    console.log('Series component mounted');
+    fetchSeries();
+  }, [fetchSeries]);
 
   const loadMore = () => {
     fetchSeries();
