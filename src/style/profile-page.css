@@ -17,12 +17,10 @@
   
 button {
     background-color: #ff4757;
-    color: white;
+    /* color: white; */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
 }
-    
-  
