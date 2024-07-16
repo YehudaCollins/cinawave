@@ -40,9 +40,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from './card';
-import SeriesCard from './SeriesCard';
 
-function Home({ filteredMovies, filteredSeries, loadMoreMovies, loadMoreSeries, isLoading, noResults }) {
+function Home({ filteredMovies,  loadMoreMovies,  isLoading, noResults }) {
   return (
     <div className="main-cards">
       {noResults ? (
@@ -57,14 +56,6 @@ function Home({ filteredMovies, filteredSeries, loadMoreMovies, loadMoreSeries, 
               <Card movie={movie} />
             </Link>
           ))}
-          {filteredSeries.map((series, index) => (
-            <Link
-              key={index}
-              to={`/series/${encodeURIComponent(series.name)}`}
-            >
-              <SeriesCard series={series} />
-            </Link>
-          ))}
         </>
       )}
       <div>
@@ -76,15 +67,6 @@ function Home({ filteredMovies, filteredSeries, loadMoreMovies, loadMoreSeries, 
             disabled={isLoading}
           >
             {isLoading ? 'Loading...' : 'Load More Movies'}
-          </button>
-        )}
-        {filteredSeries.length > 0 && (
-          <button 
-            className="load-more-btn" 
-            onClick={loadMoreSeries}
-            disabled={isLoading}
-          >
-            {isLoading ? 'Loading...' : 'Load More Series'}
           </button>
         )}
       </div>

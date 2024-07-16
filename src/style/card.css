@@ -54,7 +54,7 @@
   font-size: x-large;
 }
 
-#main-info-movie {
+.main-info-movie {
   display: flex;
   flex-direction: row;
   gap: 3px;
