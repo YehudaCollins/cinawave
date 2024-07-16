@@ -1,0 +1,164 @@
+.insideCard {
+  position: relative;
+}
+
+.Movie-not-found {
+  color: white;
+  font-size: xx-large;
+}
+
+.top-inside {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2%;
+}
+
+.inside-info {
+  margin-top: 15%;
+  margin-left: 7%;
+  margin-right: 50%;
+  color: white;
+}
+
+.inside-info > div {
+  margin-bottom: 10px;
+}
+
+.bottom {
+  height: 100px;
+}
+
+.movie-inside-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1%;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.text-description {
+  font-family: "Roboto", sans-serif;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.text-description {
+  width: 60%;
+  font-size: 1.2em;
+}
+
+.movie-inside-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.mib-play-btn {
+  width: 350px;
+  height: 55px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6%;
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+
+.mib-bt-div a {
+  text-decoration: none; /* Remove underline */
+}
+
+.mib-play-btn:hover {
+  transform: scale(1.015);
+  transition: transform 0.3s ease;
+}
+
+.add-favorite-btn {
+  width: 55px;
+  height: 55px;
+  color: white;
+  background-color: rgb(48, 48, 48);
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-favorite-btn:hover {
+  background-color: rgb(130, 130, 130);
+  transition: background-color 0.6s ease;
+}
+
+.mib-play-btn txt,
+.add-favorite-btn .like {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.mib-play-btn plBt {
+  font-size: 1.5em;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.like {
+  font-size: 25px;
+}
+
+.circle-inside {
+  font-size: 3.5px;
+  align-items: center;
+  color: #acacac;
+}
+
+.movie-inside-genre {
+  display: flex;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.genre {
+  margin-right: 5px;
+  padding: 5px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+}
+
+/* Define different background colors for genres */
+.genre:nth-child(odd),
+.genre:nth-child(even) {
+  background-color: rgb(76, 76, 76);
+}
+
+.movie-inside-logo {
+  width: 100%;
+  bottom: 0%;
+  left: 0%;
+  position: absolute;
+}
+
+.movie-inside-logo-div {
+  width: 60%;
+  height: 50%;
+  position: relative;
+}
+
+.button-More-less {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+  color: rgb(157, 206, 238);
+  font: 0.8em sans-serif;
+  /* text-decoration: underline; 
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);   */
+}
