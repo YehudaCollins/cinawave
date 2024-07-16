@@ -21,7 +21,7 @@ function Card({ movie, isInMyList }) {
         </div>
       )}
       <div className="movie-description">
-        <div id="main-info-movie">
+        <div className="main-info-movie">
           <div className="cube-info">
             <h1 className="cube-text">{movie.vote_average.toFixed(1)}</h1>
           </div>

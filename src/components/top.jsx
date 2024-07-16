@@ -27,8 +27,6 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown, user }) {
         <Link to="/" className={location.pathname === "/" ? "active-link" : ""}>
           home
         </Link>
-        {/* <div className="nav-home">Home </div>
-        {navigation("/" )} */}
 
         <Link
           to="/my-list"
@@ -76,7 +74,7 @@ function Top({ onSearch }) {
 
   if (
     location.pathname === "/my-list" ||
-    location.pathname.startsWith("/card") 
+    location.pathname.startsWith("/card")
   ) {
     return (
       <div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, memo, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPlus, faCircle, faCheck } from "@fortawesome/free-solid-svg-icons";
-import "../style/insideCard.css"; // You can reuse the same CSS file for consistency
+import "../style/insideCard.css"; // שימוש באותו קובץ CSS
 
 const apiKey = "3d3bdf59fe98f22449ae9f0c6c3727f6";
 const baseUrl = "https://api.themoviedb.org/3/";
@@ -82,7 +82,7 @@ const InsideSeriesCard = memo(({ filteredSeries }) => {
   }
 
   const backgroundImageStyle = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/w500/${selectedSeries.backdrop_path})`,
+    backgroundImage: `url(https://image.tmdb.org/t/p/original/${selectedSeries.poster_path})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100vh",
@@ -106,11 +106,11 @@ const InsideSeriesCard = memo(({ filteredSeries }) => {
       <div className="top-inside">
         <div className="inside-info">
           <div className="movie-inside-logo-div">
-            <img
-              className="movie-inside-logo"
-              src={`https://image.tmdb.org/t/p/original/${selectedSeries.poster_path}`}
-              alt={selectedSeries.name}
-            />
+          <img
+                className="movie-inside-logo"
+                src={selectedSeries.logo}
+                alt={selectedSeries.original_title}
+              />
           </div>
           <div className="movie-inside-description">
             <div className="mis-year">{selectedSeries.first_air_date ? new Date(selectedSeries.first_air_date).getFullYear() : 'N/A'}</div>

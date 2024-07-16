@@ -30,21 +30,22 @@ function Series() {
   }
 
   return (
-    <div className="series-container">
-      <h1 style={{color:"white", textAlign:"center", fontSize:"xxx-large"}}>series</h1>
-      <div className="series-grid">
-        {series.map(show => (
-          <Link key={show.id} to={`/series/${encodeURIComponent(show.name)}`}>
+    <div className="main-cards">
+        {series.map((show) => (
+          <Link 
+            key={show.id} 
+            to={`/series/${encodeURIComponent(show.name)}`}
+          >
             <SeriesCard series={show} isInMyList={true} />
           </Link>
         ))}
-      </div>
-      {!isLoading && (
-        <button onClick={loadMore} className="load-more-btn">
-          Load More
-        </button>
-      )}
-    </div>
+      <div>
+        <div className="btn-space"></div>
+            <button onClick={loadMore} className="load-more-btn">
+            {isLoading ? 'Loading...' : 'Load More'}
+            </button>
+        </div>
+  </div>
   );
 }
 
