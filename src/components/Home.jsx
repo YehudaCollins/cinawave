@@ -63,10 +63,11 @@ function Home({ filteredMovies,  loadMoreMovies,  isLoading, noResults }) {
         {filteredMovies.length > 0 && (
           <button 
             className="load-more-btn" 
+            id='movies'
             onClick={loadMoreMovies}
             disabled={isLoading}
           >
-            {isLoading ? 'Loading...' : 'Load More Movies'}
+            {isLoading ? 'Loading...' : 'Load More'}
           </button>
         )}
       </div>
