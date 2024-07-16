@@ -274,6 +274,42 @@
     margin-bottom: 10px;
   }
 }
+.profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  transition: transform 0.3s;
+}
 
+.profile-image:hover {
+  transform: scale(1.1);
+}
 
+.profile-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* Adjust icon size */
+  color: white; /* Adjust icon color */
+  transition: transform 0.3s;
+}
 
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.burger-menu {
+  color: azure;
+  z-index: 2;
+  margin-left: auto;
+  font-size: 1vw;
+  display: flex;
+  align-items: center;
+}

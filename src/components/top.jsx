@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { auth, onAuthStateChanged } from "../firebase";
-import Button from "../Button/Button"
+import Button from "../Button/Button";
 import "../style/top.css";
 
 function Titel({ searchQuery, setSearchQuery, handleKeyDown, user }) {
@@ -22,17 +22,15 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown, user }) {
           onKeyDown={handleKeyDown}
         />
       </div>
-      {/* <Search></Search> */}
       <div className="additional-links">
         <Link to="/" className={location.pathname === "/" ? "active-link" : ""}>
           home
         </Link>
-
         <Link
           to="/my-list"
           className={location.pathname === "/my-list" ? "active-link" : ""}
         >
-          favorites 
+          favorites
         </Link>
         <Link
           to="/series"
@@ -46,7 +44,9 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown, user }) {
           {user ? (
             <img src={user.photoURL} alt="Profile" className="profile-image" />
           ) : (
-            <CgProfile />
+            <div className="profile-icon">
+              <CgProfile />
+            </div>
           )}
         </Link>
       </div>
@@ -74,7 +74,9 @@ function Top({ onSearch }) {
 
   if (
     location.pathname === "/my-list" ||
-    location.pathname.startsWith("/card")
+    location.pathname.startsWith("/card") ||
+    location.pathname.startsWith("/series") ||
+    location.pathname.startsWith("/profile")
   ) {
     return (
       <div>
@@ -98,7 +100,6 @@ function Top({ onSearch }) {
         loop
         muted
         className="background-video"
-        // controls
       />
       <div className="overlay"></div>
       <div className="up">
