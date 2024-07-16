@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFoundPage from "./components/NotFound";
 import getAllTrendingMovies from "./data/database";
 import getAllTrendingSeries from "./data/databaseSeries"; 
@@ -8,20 +8,20 @@ import Home from "./components/Home";
 import MyList from "./components/myList";
 import InsideCard from "./components/insideCard";
 import Series from "./components/series";
-import SeriesCard from "./components/SeriesCard";
 import InsideSeriesCard from "./components/InsideSeriesCard";
 import "./style/App.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [series, setSeries] = useState([]); // Add state for series
-  const [filteredSeries, setFilteredSeries] = useState([]); // Add state for filtered series
+  const [series, setSeries] = useState([]); 
+  const [filteredSeries, setFilteredSeries] = useState([]); 
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [noResults, setNoResults] = useState(false); 
 
   useEffect(() => { 
-    fetchMovies(3); //כמות דפים למשיכה בעת טעינה ראשונית 
+    fetchMovies(3); // כמות דפים למשיכה בעת טעינה ראשונית 
     fetchSeries(3); // Fetch series data
   }, []);
 
@@ -51,25 +51,11 @@ function App() {
     setIsLoading(false);
   };
 
-  // const handleSearch = (searchQuery) => {
-  //   if (searchQuery.trim() === "") {
-  //     setFilteredMovies(movies);
-  //   } else {
-  //     const filtered = movies.filter(
-  //       (movie) =>
-  //         movie.original_title &&
-  //         movie.original_title
-  //           .toLowerCase()
-  //           .includes(searchQuery.toLowerCase())
-  //     );
-  //     setFilteredMovies(filtered);
-  //   }
-  // };
-
   const handleSearch = (searchQuery) => {
     if (searchQuery.trim() === "") {
       setFilteredMovies(movies);
-      setFilteredSeries(series); // Add this to reset series
+      setFilteredSeries(series); 
+      setNoResults(false); // Reset no results state
     } else {
       const filtered = movies.filter(
         (movie) =>
@@ -87,7 +73,10 @@ function App() {
             .toLowerCase()
             .includes(searchQuery.toLowerCase())
       );
-      setFilteredSeries(filteredSeries); // Add this to filter series
+
+      setFilteredMovies(filtered);
+      setFilteredSeries(filteredSeries);
+      setNoResults(filtered.length === 0 && filteredSeries.length === 0); // Set no results state
     }
   };
 
@@ -109,8 +98,11 @@ function App() {
             element={
               <Home
                 filteredMovies={filteredMovies}
+                filteredSeries={filteredSeries} // Pass filteredSeries to Home
                 loadMoreMovies={loadMoreMovies}
+                loadMoreSeries={loadMoreSeries} // Pass loadMoreSeries to Home
                 isLoading={isLoading}
+                noResults={noResults} // Pass noResults to Home
               />
             }
           />
@@ -127,13 +119,11 @@ function App() {
             path="/series/:insideSeriesCard"
             element={<InsideSeriesCard filteredSeries={filteredSeries}  />} // New route
           />
-          {/* <Route path="/SeriesCard" element={<SeriesCard />} /> */}
           <Route path="*" element={<NotFoundPage/>} />
         </Routes>
       </div>
     </Router>
   );
 }
-
 
 export default App;
