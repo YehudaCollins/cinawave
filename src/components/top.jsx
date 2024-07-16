@@ -1,12 +1,12 @@
-import Button from "../Button/Button";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+import { auth, onAuthStateChanged } from "../firebase";
+import Button from "../Button/Button"
 import "../style/top.css";
 
-
-function Titel({ searchQuery, setSearchQuery, handleKeyDown }) {
+function Titel({ searchQuery, setSearchQuery, handleKeyDown, user }) {
   const location = useLocation();
   return (
     <div className="titel">
@@ -44,11 +44,12 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown }) {
         </Link>
       </div>
       <div className="burger-menu">
-      <Link
-          to="/profile"
-          className={location.pathname === "/profile" ? "active-link" : ""}
-        >
-          <CgProfile />
+        <Link to="/profile">
+          {user ? (
+            <img src={user.photoURL} alt="Profile" className="profile-image" />
+          ) : (
+            <CgProfile />
+          )}
         </Link>
       </div>
     </div>
@@ -57,7 +58,15 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown }) {
 
 function Top({ onSearch }) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [user, setUser] = useState(null);
   const location = useLocation();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -67,7 +76,7 @@ function Top({ onSearch }) {
 
   if (
     location.pathname === "/my-list" ||
-    location.pathname.startsWith("/card")
+    location.pathname.startsWith("/card") 
   ) {
     return (
       <div>
@@ -77,6 +86,7 @@ function Top({ onSearch }) {
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           handleKeyDown={handleKeyDown}
+          user={user}
         />
       </div>
     );
@@ -100,6 +110,7 @@ function Top({ onSearch }) {
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           handleKeyDown={handleKeyDown}
+          user={user}
         />
         <div className="content">
           <div className="main">

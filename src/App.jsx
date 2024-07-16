@@ -9,6 +9,7 @@ import MyList from "./components/myList";
 import InsideCard from "./components/insideCard";
 import Series from "./components/series";
 import InsideSeriesCard from "./components/InsideSeriesCard";
+import Profile from "./components/Profile"; // New import
 import "./style/App.css";
 
 function App() {
@@ -117,8 +118,9 @@ function App() {
           <Route path="/series" element={<Series />} />
           <Route
             path="/series/:insideSeriesCard"
-            element={<InsideSeriesCard filteredSeries={filteredSeries}  />} // New route
+            element={<InsideSeriesCard filteredSeries={filteredSeries}  />} 
           />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFoundPage/>} />
         </Routes>
       </div>

@@ -1,0 +1,28 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    color: white;
+}
+  
+.profile-info {
+    text-align: center;
+}
+  
+.login-prompt {
+    text-align: center;
+}
+  
+button {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+    
+  
