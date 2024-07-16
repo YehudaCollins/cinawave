@@ -1,0 +1,219 @@
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.main-main {
+  position: relative;
+  width: 100vw;
+  height: 70vh;
+}
+
+.main h1 h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* ניתן לשנות את המשקל לפי הצורך */
+    font-size: 2em; /* או כל גודל אחר שתרצה */
+    color: #333; /* ניתן להתאים את הצבע לפי הצורך */
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.titel {
+  margin: 1%;
+  border-radius: 8px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70%;
+  width: 95;
+  margin-top: -0.3%;
+  background-color: rgba(0, 0, 0, 0.725);
+  padding: 0.3%;
+}
+
+.logo {
+  z-index: 2;
+  width: 20%;
+}
+
+.additional-links {
+  margin-left: 10%;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+}
+
+.additional-links a:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+.active-link {
+  transform: scale(1.05);
+  color: white !important;
+  font-weight: bold;
+}
+
+.burger-menu {
+  color: azure;
+  z-index: 2;
+  margin-left: auto;
+  font-size: 1vw;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.main {
+  /* position: absolute; */
+  margin: 5%;
+  height: 400%;
+  width: 60%;
+}
+
+.main-title {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 4vw; /* Using vw (viewport width) for responsive font size */
+  font-weight: bold;
+  line-height: 0.8;
+}
+
+.secondary-title {
+  color: white;
+  font:
+    1vw "Fira Sans",
+    sans-serif; /* Using vw for responsive font size */
+  font-size: 2vw;
+  line-height: 0.4;
+}
+
+.button {
+  position: relative; /* Change absolute to relative */
+  bottom: 0; /* Adjust as needed */
+  left: 0; /* Adjust as needed */
+  margin: 0;
+}
+
+.additional-links a {
+  font-size: 1.5vw; /* Adjust font size using vw for responsiveness */
+  font-family: "Montserrat", sans-serif;
+  color: #e5d9d9;
+  text-decoration: none;
+  margin-right: 50%; /* Adjust spacing between links as needed */
+  gap: 30%;
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+
+.search-bar {
+  width: 14vw; 
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  font-size: 1vw; 
+  color: white;
+  outline: none;
+  border: none;
+}
+
+#search-icon {
+  padding: 2%;
+}
+
+.search-box {
+  font-size: 1vw;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(101, 92, 92, 0.466);
+  border-radius: 8px;
+  align-items: center;
+  z-index: 2;
+  height: 30px;
+}
+
+
+
+
+
+
+
+/* CSS existing code here... */
+
+@media only screen and (max-width: 768px) {
+  .background-video {
+    /* display: none; */
+  }
+
+  .button {
+    display: none;
+  }
+  .main-main {
+    height: auto;
+  }
+
+  .main-title {
+    font-size: 6vw; 
+  }
+
+  .secondary-title {
+    font-size: 2vw;
+  }
+
+  .search-box {
+    display: flex;
+    height: auto;
+    width: 15vh;
+    font-size: 16vw;
+  }
+
+  #search-icon {
+    size: 30px;
+    font-size: 3vw;
+  }
+
+  .additional-links {
+    flex-direction: row;
+    gap: 6vw;
+  }
+
+  .additional-links a {
+    font-size: 3vw;
+    margin-right: 0;
+    /* margin-bottom: 1%; */
+  }
+
+  .burger-menu {
+    font-size: 3vw; 
+  }
+
+  .titel {
+    padding: auto;
+    display: flex;
+  }
+
+  .titel img {
+    width: 20%;
+    display: none;
+  }
+}

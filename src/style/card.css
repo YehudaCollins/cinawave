@@ -1,0 +1,86 @@
+.cards {
+  height: 335px;
+  width: 225px;
+  background-color: #c71e1e;
+  margin-top: 30px;
+  flex: 0 0 225px;
+  border-radius: 9px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cards:hover .movie-description {
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  background-color: rgba(244, 239, 246, 0.066);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  transform: scale(0.92);
+}
+
+.cards:hover img {
+  transform: scale(1.1);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+.img-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.movie-img {
+  width: 106%;
+}
+
+.movie-description {
+  position: absolute;
+  bottom: 1%;
+  left: 1%;
+  width: 100%;
+  height: 20%;
+  transition: transform 0.4s;
+}
+
+.likes {
+  color: white;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  font-size: x-large;
+}
+
+#main-info-movie {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.cube-info {
+  color: aqua;
+  background-color: rgba(0, 255, 255, 0.082);
+  backdrop-filter: blur(15px);
+  border-radius: 8px;
+  width: 20%;
+}
+
+.cards:hover .cube-text {
+  color: #1ec7b3;
+}
+
+.cube-text {
+  color: rgb(157, 206, 238);
+  font: 0.8em sans-serif;
+}
+
+.movie-name {
+  color: white;
+  text-align: left;
+  font: 1em sans-serif;
+  margin-left: 4%;
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
