@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "./card";
 import { Link } from "react-router-dom";
-import "../style/myList.css";
+import "../style/MyList.css";
 
 
 function MyList({ filteredMovies }) {
@@ -30,7 +30,7 @@ function MyList({ filteredMovies }) {
           key={index}
           to={`/card/${encodeURIComponent(movie.original_title)}`}
         >
-          <Card movie={movie} />
+          <Card movie={movie} isInMyList={true}/>
         </Link>
       ))}
     </div>

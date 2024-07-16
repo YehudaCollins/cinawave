@@ -1,0 +1,120 @@
+.series-card {
+    width: 250px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+  
+  .series-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .img-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .series-img {
+    width: 100%;
+    height: 375px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .series-card:hover .overlay {
+    opacity: 1;
+  }
+  
+  .series-card:hover .series-img {
+    transform: scale(1.05);
+  }
+  
+  .series-info {
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .series-overview {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .series-seasons {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .likes {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ff4757;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .series-description {
+    padding: 15px;
+  }
+  
+  .main-info-series {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    color: #ffa502;
+  }
+  
+  .star-icon {
+    margin-right: 5px;
+  }
+  
+  .year {
+    color: #70a1ff;
+  }
+  
+  .series-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .genres {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .genre-tag {
+    background-color: #3742fa;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+  }

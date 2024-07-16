@@ -22,9 +22,10 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown }) {
           onKeyDown={handleKeyDown}
         />
       </div>
+      {/* <Search></Search> */}
       <div className="additional-links">
         <Link to="/" className={location.pathname === "/" ? "active-link" : ""}>
-          Home
+          home
         </Link>
         {/* <div className="nav-home">Home </div>
         {navigation("/" )} */}
@@ -33,13 +34,13 @@ function Titel({ searchQuery, setSearchQuery, handleKeyDown }) {
           to="/my-list"
           className={location.pathname === "/my-list" ? "active-link" : ""}
         >
-          My List
+          favorites 
         </Link>
         <Link
           to="/series"
           className={location.pathname === "/series" ? "active-link" : ""}
         >
-          Series
+          series
         </Link>
       </div>
       <div className="burger-menu">

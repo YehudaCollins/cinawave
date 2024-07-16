@@ -89,6 +89,154 @@
 
 // export default App;
 
+
+
+
+
+
+
+
+
+
+//זה עובד
+// import React, { useState, useEffect } from "react";
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import Card from "./components/card";
+// import InsideCard from "./components/insideCard";
+// import getAllTrendingMovies from "./data/database";
+// import MyList from "./components/myList";
+// import Top from "./components/top";
+// import "./style/App.css";
+// import NotFoundPage from "./components/NotFound";
+
+// function App() {
+//   const [originalMovies, setOriginalMovies] = useState([]);
+//   const [filteredMovies, setFilteredMovies] = useState([]);
+//   const [displayedMovies, setDisplayedMovies] = useState([]);
+//   const [remainingMovies, setRemainingMovies] = useState([]);
+//   const [initialLoadCount] = useState(72); // Initial number of movies to display
+
+//   useEffect(() => {
+//     const fetchMovies = async () => {
+//       const result = await getAllTrendingMovies();
+//       setOriginalMovies(result);
+//       setFilteredMovies(result);
+//       setDisplayedMovies(result.slice(0, initialLoadCount));
+//       setRemainingMovies(result.slice(initialLoadCount));
+//     };
+//     fetchMovies();
+//   }, [initialLoadCount]);
+
+//   const handleSearch = (searchQuery) => {
+//     console.log("Search query:", searchQuery);
+
+//     if (!originalMovies || !Array.isArray(originalMovies)) {
+//       return;
+//     }
+
+//     if (searchQuery.trim() === "") {
+//       setFilteredMovies(originalMovies);
+//       setDisplayedMovies(originalMovies.slice(0, initialLoadCount));
+//       setRemainingMovies(originalMovies.slice(initialLoadCount));
+//     } else {
+//       const filtered = originalMovies.filter(
+//         (movie) =>
+//           movie.original_title &&
+//           movie.original_title
+//             .toLowerCase()
+//             .includes(searchQuery.toLowerCase()),
+//       );
+//       console.log("Filtered movies:", filtered);
+//       setFilteredMovies(filtered);
+//       setDisplayedMovies(filtered.slice(0, initialLoadCount));
+//       setRemainingMovies(filtered.slice(initialLoadCount));
+//     }
+//   };
+
+//   const loadMoreMovies = () => {
+//     const nextBatch = remainingMovies.slice(0, initialLoadCount);
+//     setDisplayedMovies((prevMovies) => [...prevMovies, ...nextBatch]);
+//     setRemainingMovies((prevRemaining) =>
+//       prevRemaining.slice(initialLoadCount),
+//     );
+//   };
+
+//   return (
+//     <Router>
+//       <div className="Main">
+//         <Top onSearch={handleSearch} /> 
+//         <Routes>
+//           <Route
+//             path="/"
+//             element={
+//               <Home
+//                 filteredMovies={filteredMovies}
+//                 loadMoreMovies={loadMoreMovies}
+//                 displayedMovies={displayedMovies}
+//                 remainingMovies={remainingMovies}
+//               />
+//             }
+//           />
+//           <Route
+//             path="/card/:insideCard"
+//             element={<InsideCard filteredMovies={filteredMovies} />}
+//           />
+//           <Route
+//             path="/my-list"
+//             element={<MyList filteredMovies={filteredMovies} />}
+//           />
+//           <Route path="/series" element={<Series />} />
+//           <Route path="*" element={<NotFoundPage/>} />
+
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// function Series() {
+//   return <h2>This is the Series page</h2>;
+// }
+
+// function Home({
+//   filteredMovies,
+//   loadMoreMovies,
+//   displayedMovies,
+//   remainingMovies,
+// }) {
+//   return (
+//     <div className="main-cards">
+//       {displayedMovies.map((movie, index) => (
+//         <Link
+//           key={index}
+//           to={`/card/${encodeURIComponent(movie.original_title)}`}
+//         >
+//           <Card movie={movie} />
+//         </Link>
+//       ))}
+//       {remainingMovies.length > 0 && (
+//         <div>
+//           <div className="btn-space"></div>
+//           <button className="load-more-btn" onClick={loadMoreMovies}>
+//             Load More
+//           </button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Card from "./components/card";
@@ -96,65 +244,57 @@ import InsideCard from "./components/insideCard";
 import getAllTrendingMovies from "./data/database";
 import MyList from "./components/myList";
 import Top from "./components/top";
-import "./style/app.css";
+import "./style/App.css";
 import NotFoundPage from "./components/NotFound";
+import SeriesCard from "./components/SeriesCard";
+import Series from "./components/series";  // Ensure this import is correct
 
 function App() {
-  const [originalMovies, setOriginalMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [displayedMovies, setDisplayedMovies] = useState([]);
-  const [remainingMovies, setRemainingMovies] = useState([]);
-  const [initialLoadCount] = useState(72); // Initial number of movies to display
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      const result = await getAllTrendingMovies();
-      setOriginalMovies(result);
-      setFilteredMovies(result);
-      setDisplayedMovies(result.slice(0, initialLoadCount));
-      setRemainingMovies(result.slice(initialLoadCount));
-    };
-    fetchMovies();
-  }, [initialLoadCount]);
+    fetchMovies(3);
+  }, []);
+
+  const fetchMovies = async (pagesToFetch = 1) => {
+    setIsLoading(true);
+    let newMovies = [];
+    for (let i = 0; i < pagesToFetch; i++) {
+      const movies = await getAllTrendingMovies(currentPage + i);
+      newMovies = [...newMovies, ...movies];
+    }
+    setMovies(prevMovies => [...prevMovies, ...newMovies]);
+    setFilteredMovies(prevMovies => [...prevMovies, ...newMovies]);
+    setCurrentPage(prevPage => prevPage + pagesToFetch);
+    setIsLoading(false);
+  };
 
   const handleSearch = (searchQuery) => {
-    console.log("Search query:", searchQuery);
-
-    if (!originalMovies || !Array.isArray(originalMovies)) {
-      return;
-    }
-
     if (searchQuery.trim() === "") {
-      setFilteredMovies(originalMovies);
-      setDisplayedMovies(originalMovies.slice(0, initialLoadCount));
-      setRemainingMovies(originalMovies.slice(initialLoadCount));
+      setFilteredMovies(movies);
     } else {
-      const filtered = originalMovies.filter(
+      const filtered = movies.filter(
         (movie) =>
           movie.original_title &&
           movie.original_title
             .toLowerCase()
-            .includes(searchQuery.toLowerCase()),
+            .includes(searchQuery.toLowerCase())
       );
-      console.log("Filtered movies:", filtered);
       setFilteredMovies(filtered);
-      setDisplayedMovies(filtered.slice(0, initialLoadCount));
-      setRemainingMovies(filtered.slice(initialLoadCount));
     }
   };
 
   const loadMoreMovies = () => {
-    const nextBatch = remainingMovies.slice(0, initialLoadCount);
-    setDisplayedMovies((prevMovies) => [...prevMovies, ...nextBatch]);
-    setRemainingMovies((prevRemaining) =>
-      prevRemaining.slice(initialLoadCount),
-    );
+    fetchMovies(5);
   };
 
   return (
     <Router>
       <div className="Main">
-        <Top onSearch={handleSearch} /> 
+        <Top onSearch={handleSearch} />
         <Routes>
           <Route
             path="/"
@@ -162,8 +302,7 @@ function App() {
               <Home
                 filteredMovies={filteredMovies}
                 loadMoreMovies={loadMoreMovies}
-                displayedMovies={displayedMovies}
-                remainingMovies={remainingMovies}
+                isLoading={isLoading}
               />
             }
           />
@@ -176,27 +315,18 @@ function App() {
             element={<MyList filteredMovies={filteredMovies} />}
           />
           <Route path="/series" element={<Series />} />
+          <Route path="/SeriesCard" element={<SeriesCard />} />
           <Route path="*" element={<NotFoundPage/>} />
-
         </Routes>
       </div>
     </Router>
   );
 }
 
-function Series() {
-  return <h2>This is the Series page</h2>;
-}
-
-function Home({
-  filteredMovies,
-  loadMoreMovies,
-  displayedMovies,
-  remainingMovies,
-}) {
+function Home({ filteredMovies, loadMoreMovies, isLoading }) {
   return (
     <div className="main-cards">
-      {displayedMovies.map((movie, index) => (
+      {filteredMovies.map((movie, index) => (
         <Link
           key={index}
           to={`/card/${encodeURIComponent(movie.original_title)}`}
@@ -204,14 +334,17 @@ function Home({
           <Card movie={movie} />
         </Link>
       ))}
-      {remainingMovies.length > 0 && (
-        <div>
-          <div className="btn-space"></div>
-          <button className="load-more-btn" onClick={loadMoreMovies}>
-            Load More
-          </button>
-        </div>
-      )}
+      <div>
+        <div className="btn-space"></div>
+        <button 
+          className="load-more-btn" 
+          onClick={loadMoreMovies}
+          disabled={isLoading}
+          id="main-cards"
+        >
+          {isLoading ? 'Loading...' : 'Load More'}
+        </button>
+      </div>
     </div>
   );
 }

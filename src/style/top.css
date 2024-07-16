@@ -14,6 +14,14 @@
   height: 70vh;
 }
 
+.main h1 h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* ניתן לשנות את המשקל לפי הצורך */
+    font-size: 2em; /* או כל גודל אחר שתרצה */
+    color: #333; /* ניתן להתאים את הצבע לפי הצורך */
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
@@ -44,12 +52,6 @@
 .logo {
   z-index: 2;
   width: 20%;
-}
-
-.search-box:hover,
-.search-box:hover .search-bar {
-  background: white;
-  color: black;
 }
 
 .additional-links {
@@ -125,10 +127,10 @@
 }
 
 .search-bar {
-  width: 80%; /* Adjust width as needed */
+  width: 14vw; 
   background-color: rgba(0, 0, 0, 0);
   border-radius: 8px;
-  font-size: 1vw; /* Using vw for responsive font size */
+  font-size: 1vw; 
   color: white;
   outline: none;
   border: none;
@@ -148,5 +150,70 @@
   align-items: center;
   z-index: 2;
   height: 30px;
-  border-radius: 20px;
+}
+
+
+
+
+
+
+
+/* CSS existing code here... */
+
+@media only screen and (max-width: 768px) {
+  .background-video {
+    /* display: none; */
+  }
+
+  .button {
+    display: none;
+  }
+  .main-main {
+    height: auto;
+  }
+
+  .main-title {
+    font-size: 6vw; 
+  }
+
+  .secondary-title {
+    font-size: 2vw;
+  }
+
+  .search-box {
+    display: flex;
+    height: auto;
+    width: 15vh;
+    font-size: 16vw;
+  }
+
+  #search-icon {
+    size: 30px;
+    font-size: 3vw;
+  }
+
+  .additional-links {
+    flex-direction: row;
+    gap: 6vw;
+  }
+
+  .additional-links a {
+    font-size: 3vw;
+    margin-right: 0;
+    /* margin-bottom: 1%; */
+  }
+
+  .burger-menu {
+    font-size: 3vw; 
+  }
+
+  .titel {
+    padding: auto;
+    display: flex;
+  }
+
+  .titel img {
+    width: 20%;
+    display: none;
+  }
 }

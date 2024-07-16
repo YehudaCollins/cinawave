@@ -1,10 +1,10 @@
 import React from "react";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaHeart } from "react-icons/fa";
 import "../style/card.css";
 
 
-function Card({ movie }) {
+function Card({ movie, isInMyList }) {
+  // console.log('isInMyList:', isInMyList);
   return (
     <div className="cards">
       <div className="img-card">
@@ -14,9 +14,12 @@ function Card({ movie }) {
           alt={movie.title}
         />
       </div>
-      <div className="likes">
-        <FontAwesomeIcon icon={faHeart} />
-      </div>
+      {/* <div className="likes"> <FaHeart /> </div> */}
+      {isInMyList && (
+        <div className="likes">
+          <FaHeart />
+        </div>
+      )}
       <div className="movie-description">
         <div id="main-info-movie">
           <div className="cube-info">
