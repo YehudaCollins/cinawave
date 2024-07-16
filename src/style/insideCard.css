@@ -159,6 +159,101 @@
   cursor: pointer;
   color: rgb(157, 206, 238);
   font: 0.8em sans-serif;
-  /* text-decoration: underline; 
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);   */
+}
+
+.movie-backdrop {
+  background-size: cover;
+  background-position: center;
+  height: 115vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  box-shadow:
+    inset 500px 0 400px -50px rgba(0, 0, 0, 1),
+    inset 0 -300px 200px -50px rgba(0, 0, 0, 1);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .top-inside {
+    flex-direction: column;
+    margin-top: 5%;
+    align-items: flex-start; /* Align items to the left */
+    padding-left: 5%; /* Add padding to move items from the edge */
+  }
+
+  .inside-info {
+    margin: 5% 0; /* Adjusted margin */
+    text-align: left; /* Align text to the left */
+    width: 90%; /* Reduced width for better alignment */
+  }
+
+  .movie-inside-description {
+    flex-direction: row;
+    align-items: center; /* Center text on small screens */
+    gap: 10px; /* Increased gap */
+  }
+
+  .text-description {
+    width: 100%;
+    font-size: 1em;
+    text-align: left; /* Align text to the left */
+    margin-bottom: 10px; /* Add space below */
+  }
+
+  .movie-backdrop {
+    background-size: cover;
+    background-position: center;
+    height: 20vh;
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .movie-inside-buttons {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    width: 100%; /* Full width on small screens */
+    margin-left: 5%; /* Adjust left margin for alignment */
+    margin-bottom: 10px; /* Add space below */
+  }
+
+  .mib-play-btn {
+    width: 90%;
+    height: 45px;
+  }
+
+  .add-favorite-btn {
+    width: 90%;
+    height: 45px;
+  }
+
+  .movie-inside-logo-div {
+    width: 100%;
+    height: auto;
+    margin-top: 10vh; /* Adjusted top margin */
+    margin-bottom: 10px; /* Add space below */
+    text-align: center; /* Center align the content */
+  }
+
+  .movie-inside-logo-div img {
+    width: 90%;
+    border-radius: 8px; /* Rounded corners for the image */
+    margin-bottom: 10px; /* Space below the image */
+  }
+
+  .movie-inside-genre {
+    justify-content: flex-start; /* Align genres to the left */
+    width: 100%;
+    flex-direction: row;
+    gap: 10px; /* Increased space between genre tags */
+    margin-bottom: 10px; /* Add space below */
+  }
+
+  .genre {
+    margin-bottom: 5px; /* Add margin at the bottom for better spacing */
+  }
 }
